@@ -1,8 +1,13 @@
-const http = require('http');
+
 const express = require('express');
 
 const app = express();
 
-const server = http.createServer(app);
+const adminRoutes = require('./routes/admin.js');
+const shopRoutes = require('./routes/shop.js');
 
-server.listen(3000);
+app.use(adminRoutes);
+app.use(shopRoutes);
+
+
+app.listen(3000);
